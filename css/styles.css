@@ -128,8 +128,12 @@ figcaption{
     text-align: center;
     padding: var(--space-4) var(--space-2);
 }
-.site-footer a{ color: var(--champagne-gold); }
-.site-footer address{ font-style: normal; }
+.site-footer a{ 
+    color: var(--champagne-gold);
+}
+.site-footer address{ 
+    font-style: normal;
+}
 
 /* GRID: base (mobile first) */
 .cards{
@@ -150,28 +154,73 @@ figcaption{
     font-family: "Playfair Display", Georgia, serif;
     margin: .25rem 0 .5rem;
 }
+
+/* Section divider line */
+.section + .section {
+    border-top: 2px solid var(--champagne-gold);
+    margin-top: var(--space-3);
+}
+
 .card--filled{
     background: var(--olive-green);
     color: #ffffff;
-    border-left-color: var(--champagne-gold);
 }
-.card--filled a{ color: #ffffff; }
+
+.card--filled a{ 
+    color: #ffffff;
+}
 
 /*gallery grid*/
 .gallery{
     display: grid;
     gap: 1rem;
 }
+
 /* MEDIA QUERIES (medium screens) */
 @media (min-width: 600px){
     .cards{ 
         grid-template-columns: 1fr 1fr;
         align-items: stretch;
     }
-        .gallery{
+    /* Gallery: 2 across */
+    .gallery{
         grid-template-columns: 1fr 1fr;
+    }
+}
+/* span-2 for cards and gallery */
+@media (min-width: 600px){
+    /* Cards: span 2 */
+    .card--span-2, .gallery--span-2{
+        grid-column: span 2;
     }
 }
 
 /* MEDIA QUERY (large) */
+@media (min-width: 900px){
+    .cards{ 
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+    }
+    /* Gallery: 3 across */
+    .gallery{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+    }
+    /* section: larger text */
+    .section h2{
+        font-size: clamp(1.75rem, 2.2vw, 2.5rem);
+    }
+}
+
 /* MEDIA QUERY (xl) */
+@media (min-width: 1200px){
+    /* Gallery: 5 across to match the wide mockup */
+    .gallery {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1.25rem;
+    }
+    /* Brand: larger text */
+    .brand h1{
+        font-size: clamp(2.5rem, 5vw, 4.25rem);
+    }
+}
